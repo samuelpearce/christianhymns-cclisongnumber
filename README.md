@@ -40,7 +40,8 @@ Suggested usage
 A friend found a way to do this, and the results are [here](/ChristianHymnsCCLISongNumber/resources/SongList.txt).
 
 ## 2. How to search for CCLI songs via code?
-Before November 2020, Selenium was used to scrape/interact with the reporting website
+Before November 2020, Selenium was used to scrape/interact with the reporting website. 
+
 After November 2020, the site was upgraded to a React/Rest API system. Selenium is still required as Json Web Tokens are embedded in a cookie. As of Nov 2020, it doesn't seem possible to authenticate without using a full browser as Google ReCaptcha is used. [Automated Login via Selenium](/CCLIReporting/Login/WebDriver.cs). To avoid using Selenium for the full API requests, reading HTTP-only cookies is required. Once I have the Token, I can close Chrome and use a standard HTTP web request library.
 
 # Challenges

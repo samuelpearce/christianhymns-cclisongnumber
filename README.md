@@ -2,6 +2,12 @@
 
 Scripts/tools to create a file containing [Christan Hymns](https://www.christianhymns.org.uk/) Song numbers and [CCLI](https://ccli.com) Song Numbers for licensing reporting purposes.
 
+# Quick Start
+
+* Project built using Visual Studio 2017 (Windows)
+* Requires Chrome Selenium from NuGet (probably breaking any Cross-platform support)
+* Main.cs is located at `ChristianHymnsCCLISongNumber/Program.cs`
+
 # Overview
 Task: Identify the CCLI song numbers for the hymns listed in Christan Hymns. Produce a CSV of Christan Hymns Song Numbers and CCLI Song Numbers
 

@@ -22,7 +22,7 @@ We consider a song to be in the public domain
 
 # (TL;DR) Download CSV/TSV
 
-Download the output CSV at (/releases/latest)
+Download the output CSV at [/releases/latest](/releases/latest)
 
 Suggested usage
 * Quick lookup of CCLI Song Numbers

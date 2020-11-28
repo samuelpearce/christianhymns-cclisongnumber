@@ -89,32 +89,33 @@ namespace ChristianHymnsCCLISongNumber
                 {
                     chosenSong = results.results.songs[0];
                     ccliId = chosenSong.ccliSongNo;
+                    weight = 100;
                 }
                 else
-                {
-                    var potentialMatches = new List<CCLIReporting.Song>();
+                {                    
+                    var potentialMatches = new List<KeyValuePair<CCLIReporting.Song, int>>();
                     foreach (var result in results.results.songs)
                     {
-                        int weight = 0;
+                        var weightCalculation = 0;
                         // For titles
                         var normS1 = normalise(song.title);
                         var normS2 = normalise(result.title);
                         if (normS1 == normS2)
                         {
-                            weight += 20;
+                            weightCalculation += 50;
                         }
                         else if (normS1.Contains(normS2))
                         {
-                            weight += 10;
+                            weightCalculation += 25;
                         }
                         else if (normS2.Contains(normS1))
                         {
-                            weight += 5;
+                            weightCalculation += 25;
                         }
 
                         // For Authors
                         //var authorS1 = normalise(String.Join(" ", song.author.SongContributors().Select(contributor => String.Format("{0} {1}", contributor.FirstName(), contributor.LastName()))));
-                        var originalAuthorsList = normaliseAuthors(song.author.SongContributors());
+                        var originalAuthorsList = normaliseAuthors(song.author.SongContributors());                        
                         var originalAuthorsComparible = normalise(String.Join("", originalAuthorsList));
                         var remote = new List<SongContributor>();
                         foreach (var remoteAuthor in result.authors)

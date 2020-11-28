@@ -39,6 +39,7 @@ namespace ChristianHymnsCCLISongNumber
                 { 2, new CCLIReporting.Song("3483774", true) },
                 // Chandler is credited as translator, Latin 6th Cent original
                 { 4, new CCLIReporting.Song("2780447", true) },
+                { 6, new CCLIReporting.Song("2952134", false) },
                 { 7, new CCLIReporting.Song("2623968", false) },
                 // Correct value too low down list
                 { 16, new CCLIReporting.Song("2682930", true) },
@@ -48,6 +49,7 @@ namespace ChristianHymnsCCLISongNumber
                 { 28, new CCLIReporting.Song("2648022", true) },
                 // Many authors
                 { 38, new CCLIReporting.Song("744183", true) },
+                { 45, new CCLIReporting.Song("2756361", true) },
                 // Different title
                 { 56, new CCLIReporting.Song("3254271", true) },
                 // Translator
@@ -56,7 +58,8 @@ namespace ChristianHymnsCCLISongNumber
                 { 82, new CCLIReporting.Song("27903", true) },
                 // Title different (o God vs Our God)
                 { 115, new CCLIReporting.Song("2648606", true) },
-
+                
+                { 118, new CCLIReporting.Song("2953425", true) },
                 { 129, new CCLIReporting.Song("2244220", true) },
                 // Song title name different to first line
                 { 143, new CCLIReporting.Song("38961", false) },

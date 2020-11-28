@@ -29,9 +29,8 @@ namespace FWCCLISongReporting.ChristianHymns
             modifiedCopyright = modifiedCopyright.Trim()
                 // input has lowercase L instead of 1 so regex breaks
                 .Replace("Nicolaus Ludwig von Zinzendorf, 1700-60, v. l",
-                    "Nicolaus Ludwig von Zinzendorf, 1700-60, v. 1");
-
-
+                    "Nicolaus Ludwig von Zinzendorf, 1700-60, v. 1")
+                .Replace("Graham D S Deans", "Graham DS Deans");
 
             // " Text (mod.)" - remove and manually handle
             // "as in Scottish Paraphrases" is appendix data

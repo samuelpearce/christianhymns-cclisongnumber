@@ -54,11 +54,25 @@ namespace ChristianHymnsCCLISongNumber
                 { 70, new CCLIReporting.Song("5119747", false) },
                 // No author listed in CH
                 { 82, new CCLIReporting.Song("27903", true) },
+                // Title different (o God vs Our God)
+                { 115, new CCLIReporting.Song("2648606", true) },
+
+                { 129, new CCLIReporting.Song("2244220", true) },
+                // Song title name different to first line
+                { 143, new CCLIReporting.Song("38961", false) },
+                // Song title name different to first line
+                { 144, new CCLIReporting.Song("2492216", false) },                
+                // Slightly different name
+                { 159, new CCLIReporting.Song("871991", false) },
                 // Complex Author parsing
                 { 184, new CCLIReporting.Song("916557", false) },
+                // Song title name different to first line
+                { 193, new CCLIReporting.Song("3709898", false) },
+                { 198, new CCLIReporting.Song("3244126", true) },
                 // Now in the public domain
                 { 235, new CCLIReporting.Song("507045", false) },
-
+                // Different auther
+                { 237, new CCLIReporting.Song("2647669", true) },                
                 // Copyright control
                 { 238, new CCLIReporting.Song("4580195", true) },
                 // Different middlename + low search list
@@ -67,8 +81,52 @@ namespace ChristianHymnsCCLISongNumber
                 { 248, new CCLIReporting.Song("1589969", true) },
                 // CCLI Song contains middle name
                 { 249, new CCLIReporting.Song("4044349", true) },
+                // diffrent title
+                { 265, new CCLIReporting.Song("2779685", true) },
+                // CCLI contains middle names
+                { 273, new CCLIReporting.Song("2424507", true) },
                 // Far down list
                 { 318, new CCLIReporting.Song("7080134", true) },
+                // Anonymous
+                { 322, new CCLIReporting.Song("2743628", true) },
+                // Contains book source, but public domain
+                { 333, new CCLIReporting.Song("3788792", true) },
+                // Strange author formatting
+                { 351, new CCLIReporting.Song("3168185", true) },
+                // Strange author formatting
+                { 378, new CCLIReporting.Song("3162143", true) },
+                { 365, new CCLIReporting.Song("3240230", false) },
+                { 393, new CCLIReporting.Song("2768713", true) },
+                { 402, new CCLIReporting.Song("40571", false) },
+                { 483, new CCLIReporting.Song("2649935", false) },
+                { 491, new CCLIReporting.Song("2993241", true) },
+                { 494, new CCLIReporting.Song("3213164", true) },
+                { 503, new CCLIReporting.Song("190579", false) },
+                { 603, new CCLIReporting.Song("3234813", false) },
+                { 617, new CCLIReporting.Song("17597", false) },
+                { 637, new CCLIReporting.Song("1045238", false) },
+                { 646, new CCLIReporting.Song("16653", false) },
+                { 647, new CCLIReporting.Song("3350395", false) },
+                { 673, new CCLIReporting.Song("2684543", true) },
+                { 703, new CCLIReporting.Song("20285", false) },
+                { 717, new CCLIReporting.Song("19605", false) },
+                { 731, new CCLIReporting.Song("6012702", false) },
+                { 781, new CCLIReporting.Song("3438561", true) },
+                { 784, new CCLIReporting.Song("2982812", true) },
+                { 801, new CCLIReporting.Song("3238864", true) },
+                { 808, new CCLIReporting.Song("1585970", false) },
+                { 821, new CCLIReporting.Song("78897", false) },
+                { 828, new CCLIReporting.Song("93724", true) },
+                { 853, new CCLIReporting.Song("5860591", true) },
+                { 855, new CCLIReporting.Song("3143674", true) },
+                { 865, new CCLIReporting.Song("31315", true) },
+                { 913, new CCLIReporting.Song("1383", false) },
+                { 915, new CCLIReporting.Song("4755580", true) },
+                { 916, new CCLIReporting.Song("21167", false) },
+                { 925, new CCLIReporting.Song("1493", false) },
+                { 931, new CCLIReporting.Song("3372098", false) },
+                { 939, new CCLIReporting.Song("40801", false) },
+                { 942, new CCLIReporting.Song("114452", false) },
             };
 
             return magicList;

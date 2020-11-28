@@ -66,10 +66,12 @@ namespace ChristianHymnsCCLISongNumber
                 chosenSong = new CCLIReporting.Song();
                 chosenSong.publicDomain = song.author.isPublicDomain();
                 String searchTerm = "";
+                CCLIReporting.Song magicSong = null;
                 var skipValidation = false;
                 if (magicMatchList.ContainsKey(idAsInt))
                 {
-                    searchTerm = magicMatchList.First(s => s.Key == idAsInt).Value;
+                    magicSong = magicMatchList.First(s => s.Key == idAsInt).Value;
+                    searchTerm = magicSong.ccliSongNo;
                     skipValidation = true;
                 }
                 else
@@ -157,7 +159,9 @@ namespace ChristianHymnsCCLISongNumber
                     }
                 }
 
-                outputCcliIdFile.Output(song.id.ToString(), ccliId, chosenSong.publicDomain, song.title, song.author.ToString(), song.metre);
+                var publicDomain = (magicSong == null) ? chosenSong.publicDomain : magicSong.publicDomain;
+
+                outputCcliIdFile.Output(song.id.ToString(), ccliId, publicDomain, song.title, song.author.ToString(), song.metre);
             }
 
         }

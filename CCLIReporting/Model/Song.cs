@@ -12,5 +12,13 @@ namespace CCLIReporting
         public bool publicDomain { get; set; } = false;
         public string playbackUrl { get; set; }
         public bool popular { get; set; }
+
+        public Song() { }
+
+        public Song(string ccliSongNumber, bool publicDomain)
+        {
+            this.ccliSongNo = ccliSongNumber;
+            this.publicDomain = publicDomain;
+        }
     }
 }

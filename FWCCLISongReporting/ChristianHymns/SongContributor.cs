@@ -85,8 +85,8 @@ namespace FWCCLISongReporting.ChristianHymns
         }
 
         private Match Match()
-        {           
-            return new Regex(@"^([A-Za-z*.\- ]+),?( [bdc.]+\.)?( [0-9]{0,4})?(-([0-9]{0,4}))?(, vv?. [0-9]-?[0-9]?)?( © [\w\d&©,. /]+)?$")
+        {
+            return new Regex(@"^([A-Za-z'*\- ]+),?( [bdc.]+\.)?( [0-9]{0,4})?(-([0-9]{0,4}))?,?(, vv?. [0-9]-?[0-9]?)?( © [\w\d&©!,.\- /]+)?[\,*]?$")
                 .Match(modifiedCopyright);
         }
 

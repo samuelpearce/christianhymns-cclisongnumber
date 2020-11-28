@@ -18,12 +18,13 @@ namespace ChristianHymnsCCLISongNumber
             file = new StreamWriter(this.outputPath);
         }
 
-        public void Output(String chId, String christianHymnsId, bool isPublicDomain, String title, String authors, String metre)
+        public void Output(String chId, String christianHymnsId, bool isPublicDomain, int weight, String title, String authors, String metre)
         {
             file.WriteLine(String.Format("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t",
                 chId,
                 christianHymnsId,
                 isPublicDomain ? 1 : 0,
+                weight.ToString("D3"),
                 title,
                 authors,
                 metre));

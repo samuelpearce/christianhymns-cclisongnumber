@@ -72,7 +72,9 @@ namespace ChristianHymnsCCLISongNumber
                 }
                 else
                 {
-                    searchTerm = "\"" + song.title + "\" " + String.Join(" ", song.author.SongContributors()
+                    searchTerm = "\"" + song.title + "\" " + String.Join(" ",
+                        song.author.SongContributors()
+                        .Where(cont => cont.ContributionType() != ContributionType.Book)
                         .Select(contributor => String.Format("{0} {1}", contributor.FirstName(), contributor.LastName()))
                     );
                     skipValidation = false;
@@ -176,11 +178,15 @@ namespace ChristianHymnsCCLISongNumber
             {
                 var tmpName = item.ToString()
                     .Replace("Authors\r\n", "")
-                    .Replace("Rev. ", "");
+                    .Replace("Rev. ", "")
+                    .Replace("Jr.", "");
 
-                var contributor = new SongContributor(tmpName);
-                list.Add(contributor.FirstName());
-                list.Add(contributor.LastName());
+                if (item.ContributionType() != ContributionType.Book)
+                {
+                    var contributor = new SongContributor(tmpName);
+                    list.Add(contributor.FirstName());
+                    list.Add(contributor.LastName());
+                }
             }
             list.RemoveAll(x => x == "");
             list.Sort();

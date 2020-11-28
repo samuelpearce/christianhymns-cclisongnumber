@@ -47,21 +47,17 @@ namespace ChristianHymnsCCLISongNumber
                 File.Delete(tmpFile);
             }
 
+            var magicMatchList = HymnMatches.load();
+
             foreach (KeyValuePair<string, ChristianHymns.TitlesList.Song> songPair in christianHymnsSongsList)
             {
                 String id = songPair.Key;
                 int idAsInt = Int32.Parse(id);
                 ChristianHymns.TitlesList.Song song = songPair.Value;
 
-                if (idAsInt == 146)
-                {
-                    String aseedf = "";
-                }
-
                 string ccliId = null;
                 CCLIReporting.Song chosenSong = null;
-
-                var magicMatchList = HymnMatches.load();
+                int weight = 0;
 
                 chosenSong = new CCLIReporting.Song();
                 chosenSong.publicDomain = song.author.isPublicDomain();
@@ -129,31 +125,38 @@ namespace ChristianHymnsCCLISongNumber
                         var remoteAuthorsComparible = normalise(String.Join("", remoteAuthorsList));
                         if (originalAuthorsComparible == remoteAuthorsComparible)
                         {
-                            weight = weight * 3;
-                        }
+                            weightCalculation += 50;
+                        } 
 
-                        if (Math.Abs(originalAuthorsList.Count() - remoteAuthorsList.Count()) <= 1)
+                        if (Math.Abs(remoteAuthorsList.Count - originalAuthorsList.Count()) == 1)
                         {
-                            weight = weight * 3;
+                            weightCalculation += 25;
                         }
                     
-                        if (weight >= 40)
+                        if (weightCalculation >= 75)
                         {
-                            potentialMatches.Add(result);
+                            potentialMatches.Add(new KeyValuePair<CCLIReporting.Song, int>(result, weightCalculation));
                         }
                     }
-                    
+                    if (results.results.songs.Count() == 0) {
+                        weight = 900;
+                    }
+
+                    potentialMatches.Sort((x, y) => (y.Value.CompareTo(x.Value)));
                     var cachedIsPublicDomain = song.author.isPublicDomain();
 
                     foreach (var match in potentialMatches)
                     {
+                        var matchedSong = match.Key;
+                        var localWeight = match.Value;
                         // If song is not PD, select first exact match found (until we can distingush better)
                         // If song is PD, then ensure ensure the match is also PD
 
-                        if (match.publicDomain == cachedIsPublicDomain)
+                        if (matchedSong.publicDomain == cachedIsPublicDomain)
                         {
-                            chosenSong = match;
+                            chosenSong = matchedSong;
                             ccliId = chosenSong.ccliSongNo;
+                            weight = localWeight;
                             break;
                         }
                     }
@@ -161,7 +164,7 @@ namespace ChristianHymnsCCLISongNumber
 
                 var publicDomain = (magicSong == null) ? chosenSong.publicDomain : magicSong.publicDomain;
 
-                outputCcliIdFile.Output(song.id.ToString(), ccliId, publicDomain, song.title, song.author.ToString(), song.metre);
+                outputCcliIdFile.Output(song.id.ToString(), ccliId, publicDomain, weight , song.title, song.author.ToString(), song.metre);
             }
 
         }
@@ -205,7 +208,7 @@ namespace ChristianHymnsCCLISongNumber
 
         private static string normalise(string s)
         {
-            Regex rgx = new Regex("[^a-zA-Z ]");    
+            Regex rgx = new Regex("[^a-zA-Z]");    
             s = rgx.Replace(s.Trim().ToLower(), "");
             foreach (var l in wordReplacementList)
             {

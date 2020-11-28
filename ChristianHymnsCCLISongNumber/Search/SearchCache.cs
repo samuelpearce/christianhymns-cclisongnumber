@@ -35,7 +35,7 @@ namespace ChristianHymnsCCLISongNumber.Search
                 int i = 1;
                 ReportingSearchPage results = null;
                 List<Song> songsList = new List<Song>();
-                while (count >= 10 && songsList.Count() < 40)
+                while (count >= 10 && songsList.Count() < 80)
                 {
                     results = this.search.Search(searchTerms, i).SearchAsync();
                     count = results.results.songs.Count();
